@@ -7,7 +7,7 @@
 ## Short Description
 “Bachao – Touch Me NOT” is a hyper-casual 3D arcade game. It is the story of a sphere trying to escape from dangerous randomly spawned cubes. The game is endless of which aim is to score more and more. Playing and scoring eradicates monotony and boredom spontaneously. The more time goes, the more challenge comes and that makes this game so addictive. It is so much handy and catchy to play in leisure time and also in break of works or study.
 
-The cubes continuously follow the sphere. Moreover, player or the enemy is destroyed by touching the side bars. So the sphere that is controlled by player must not to touch the cubes and the side bars to survive. In order to score, player have to make the cubes touched the side bars.
+The cubes continuously follow the sphere. Moreover, player or the enemy can be destroyed by touching the side bars. So the sphere that is controlled by player must not to touch the cubes and the side bars to survive. In order to score, player have to make the cubes touched the side bars.
 
 ## Features
 ###          Smooth Graphics
