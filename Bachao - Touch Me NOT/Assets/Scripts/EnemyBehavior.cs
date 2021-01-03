@@ -23,10 +23,10 @@ public class EnemyBehavior : MonoBehaviour
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
     }
-        
+
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gameManager.isGameOn)
         {
@@ -41,7 +41,7 @@ public class EnemyBehavior : MonoBehaviour
             Vector3 lookDirection = (player.transform.position - transform.position).normalized;
             enemyRb.AddForce(lookDirection * speed);
         }
-          
+
 
         if (transform.position.z <= -zBound)
         {

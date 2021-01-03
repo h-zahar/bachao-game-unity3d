@@ -25,11 +25,11 @@ public class PlayerController : MonoBehaviour
         // playerRb = GetComponent<Rigidbody>();
 
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gameManager.isGameOn)
         {
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     // Method Created to get control over Player
     public void PlayerMovement()
     {
-        
+
         // Declaring and Assigning Input Manager
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -55,27 +55,27 @@ public class PlayerController : MonoBehaviour
 
         powerupIndicator.transform.position = transform.position;
 
-    
+
     }
 
     // Method Created to restrict the boundary
     public void PlayerConstrains()
     {
-            // If position of player towards z Axis gets over the z positive point
+        // If position of player towards z Axis gets over the z positive point
         if (transform.position.z >= zBound)
         {
-                // Setting transform.position as current position; setting z axis to positive bound 
+            // Setting transform.position as current position; setting z axis to positive bound 
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
 
-            // If position of player towards z Axis gets over the z negetive point
+        // If position of player towards z Axis gets over the z negetive point
         if (transform.position.z <= -zBound)
-            {
-                // Setting transform.position as current position; setting z axis to negetive bound 
+        {
+            // Setting transform.position as current position; setting z axis to negetive bound 
             transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
         }
 
-     
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
 
+            powerupIndicator.SetActive(false);
             Debug.Log("GAME OVER");
 
             gameManager.isGameOver = true;

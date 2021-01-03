@@ -60,37 +60,37 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11838}
     - Class: 114
-      Script: {instanceID: 12010}
+      Script: {instanceID: 12014}
     - Class: 114
-      Script: {instanceID: 12052}
+      Script: {instanceID: 12056}
     - Class: 114
-      Script: {instanceID: 12130}
+      Script: {instanceID: 12134}
     - Class: 114
-      Script: {instanceID: 12500}
+      Script: {instanceID: 12504}
     - Class: 114
-      Script: {instanceID: 12532}
+      Script: {instanceID: 12536}
     - Class: 114
-      Script: {instanceID: 12780}
+      Script: {instanceID: 12784}
     - Class: 114
-      Script: {instanceID: 12966}
+      Script: {instanceID: 12970}
     - Class: 114
-      Script: {instanceID: 13218}
+      Script: {instanceID: 13222}
     - Class: 114
-      Script: {instanceID: 13236}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13458}
+      Script: {instanceID: 13462}
     - Class: 114
-      Script: {instanceID: 13526}
+      Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13712}
+      Script: {instanceID: 13716}
     - Class: 114
-      Script: {instanceID: 13756}
+      Script: {instanceID: 13760}
     - Class: 114
-      Script: {instanceID: 13828}
+      Script: {instanceID: 13832}
     - Class: 114
-      Script: {instanceID: 13934}
+      Script: {instanceID: 13938}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -628,7 +628,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 2dc22f99a2490a50ce1b591b4bdadca7
+      Hash: 235b7da6af0857700cf757e6a771ea8b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -761,5 +761,6 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/My Game.unity
-  playerPath: E:/Projects/Unity Game Projects/Create with Code/HZ Rifat - Personal
-    Project/Builds/Windows/Bachao - Touch Me NOT/Bachao - Touch Me NOT.exe
+  playerPath: E:/Projects/Unity Game Projects/Create with Code/Bachao - Touch Me
+    NOT/Builds/Windows - Mac - Linux Standalone/Bachao - Touch Me NOT (v0.1)/Bachao
+    - Touch Me NOT.exe

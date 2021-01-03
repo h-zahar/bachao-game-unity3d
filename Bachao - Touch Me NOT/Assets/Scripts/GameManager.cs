@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     public GameObject powerupPrefab;
-    public GameObject player;
 
     private float xBound = 13;
     private float zBound = 13;
@@ -34,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
     public bool isGameOn = false;
-    public bool isPlayerOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -68,11 +66,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PrePlay()
     {
-        yield return new WaitForSeconds(1.5f); 
+        yield return new WaitForSeconds(1.5f);
 
         showGameName.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         startButton.gameObject.SetActive(true);
     }
 
@@ -82,13 +80,13 @@ public class GameManager : MonoBehaviour
 
         showGameName.gameObject.SetActive(false);
         startButton.gameObject.SetActive(false);
-       
+
 
         scoreText.text = "Score: " + score;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isGameOn)
         {
@@ -110,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnManager()
     {
-       
+
         enemyCount = FindObjectsOfType<EnemyBehavior>().Length;
 
         if (enemyCount == 0 && !isGameOver)
@@ -127,14 +125,26 @@ public class GameManager : MonoBehaviour
             waveCount++;
         }
 
-        
+
     }
 
 
     void SpawnEnemyPrefabsWave()
     {
-        int generateIndex = GenerateIndex();
-        Instantiate(enemyPrefabs[generateIndex], XGenerateRandomPos(), enemyPrefabs[generateIndex].transform.rotation);
+        int minIndex = 0;
+        int maxIndex = 6;
+        int generateIndex = GenerateIndex(minIndex, maxIndex);
+
+        if (generateIndex >= (maxIndex / 2))
+        {
+            Instantiate(enemyPrefabs[generateIndex], XGenerateRandomPos(), enemyPrefabs[generateIndex].transform.rotation);
+        }
+
+        if (generateIndex < (maxIndex / 2))
+        {
+            Instantiate(enemyPrefabs[generateIndex], negXGenerateRandomPos(), enemyPrefabs[generateIndex].transform.rotation);
+        }
+
     }
 
     void SpwanPowerupPrefabWave()
@@ -142,10 +152,8 @@ public class GameManager : MonoBehaviour
         Instantiate(powerupPrefab, GenerateRandomPos(), powerupPrefab.transform.rotation);
     }
 
-    int GenerateIndex()
+    int GenerateIndex(int minIndex, int maxIndex)
     {
-        int minIndex = 0;
-        int maxIndex = 3;
         return Random.Range(minIndex, maxIndex);
     }
 
@@ -164,6 +172,11 @@ public class GameManager : MonoBehaviour
         return new Vector3(XGeneratePos(), 0.5000001f, zSpawnPos);
     }
 
+    Vector3 negXGenerateRandomPos()
+    {
+        return new Vector3(XGeneratePos(), 0.5000001f, -zSpawnPos);
+    }
+
     Vector3 GenerateRandomPos()
     {
         return new Vector3(XGeneratePos(), 0.5000001f, ZGeneratePos());
@@ -180,7 +193,7 @@ public class GameManager : MonoBehaviour
 
     private void InitiateScreen()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 6; i++)
         {
 
             enemyPrefabs[i].SetActive(true);
@@ -194,8 +207,8 @@ public class GameManager : MonoBehaviour
     private void ClearScreenAtEnd()
     {
 
-            StartCoroutine(ClearAfterSeconds());
-       
+        StartCoroutine(ClearAfterSeconds());
+
     }
 
     IEnumerator ClearAfterSeconds()
